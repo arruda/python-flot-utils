@@ -53,7 +53,7 @@ class DuplicateLabelException(Exception):
     label a new series with a label already in use"""
 
 
-LINE_TYPES = ('bars', 'line', 'points')
+LINE_TYPES = ('bars', 'lines', 'points')
 
 
 class Flot(object):
