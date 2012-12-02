@@ -102,7 +102,7 @@ class Flot(object):
     def __getattr__(self, value):
         """
         add_bars
-        add_line
+        add_lines
         add_points
 
         provides shortcut methods for adding series using a particular line type
