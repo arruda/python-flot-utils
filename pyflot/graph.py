@@ -116,7 +116,9 @@ class Flot(object):
         """Used as a partial by __getattr__ to auto set the line_type
         for the series."""
         method = getattr(self, 'add_series')
-        return method(series, label, **{line_type: True})
+        new_kwargs = {line_type: True}
+        new_kwargs.update(kwargs)
+        return method(series, label, **new_kwargs)
 
     def add_series(self, series, label=None, **kwargs):
         """
@@ -153,6 +155,10 @@ class Flot(object):
                     new_series.update({line_type: kwargs[line_type]})
                 else:
                     new_series.update({line_type: {'show': True}})
+
+                for k,v in kwargs.items():
+                    if not k == line_type:
+                        new_series.update({line_type: {k:v}})
         self._series.append(new_series)
 
     #def add_time_series(self, series, label=None, **kwargs):
