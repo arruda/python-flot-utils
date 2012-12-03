@@ -158,7 +158,8 @@ class Flot(object):
 
                 for k,v in kwargs.items():
                     if not k == line_type:
-                        new_series.update({line_type: {k:v}})
+                        new_series[line_type].update({k:v})
+
         self._series.append(new_series)
 
     #def add_time_series(self, series, label=None, **kwargs):
